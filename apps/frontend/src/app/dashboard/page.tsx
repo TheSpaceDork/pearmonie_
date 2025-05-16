@@ -1,32 +1,26 @@
 "use client";
-import axios from "axios";
+import RecommendationCards from "@/components/RecommendationCards";
 import React from "react";
-import { enqueueSnackbar } from "notistack";
-import { axiosInstance } from "../../../lib/axios";
-import { useRouter } from "next/navigation";
-const Page = () => {
-  const router = useRouter();
-  const logOut = async () => {
-    try {
-      const response = await axiosInstance.get("/auth/logout");
-      if (response.status === 200) {
-        console.log(response);
-        router.replace("/login");
-      }
-    } catch (error) {
-      console.log(error);
 
-      if (axios.isAxiosError(error)) {
-        enqueueSnackbar(error.response?.data?.message || "An error occurred", {
-          variant: "error",
-        });
-      }
-    }
+import Masonry from "react-masonry-css";
+const Page = () => {
+  const breakpointColumnsObj = {
+    default: 3,
+    1100: 3,
+    700: 2,
+    500: 1,
   };
   return (
-    <div>
-      Dash home
-      <button onClick={logOut}>Logout</button>
+    <div className="w-full px-[1.5rem] py-[3rem]">
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
+        <RecommendationCards />
+        <RecommendationCards />
+        <RecommendationCards />
+      </Masonry>
     </div>
   );
 };

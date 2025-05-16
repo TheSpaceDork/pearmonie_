@@ -4,14 +4,16 @@ interface userType {
   user: {
     email: string;
     name: string;
-    id: string;
+    _id: string;
+    role: string;
   };
 }
 const initialState: userType = {
   user: {
     email: "",
     name: "",
-    id: "",
+    _id: "",
+    role: "",
   },
 };
 
