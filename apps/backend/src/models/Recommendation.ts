@@ -15,9 +15,14 @@ const recommendationSchema = new mongoose.Schema(
     postType: {
       type: String,
       required: true,
-      enum: ["article", "video", "image", "link"],
     },
     image: {
+      type: String,
+    },
+    link: {
+      type: String,
+    },
+    text: {
       type: String,
     },
     tags: {
@@ -33,6 +38,7 @@ const recommendationSchema = new mongoose.Schema(
       {
         user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
         text: String,
+        name: String,
         createdAt: { type: Date, default: Date.now },
       },
     ],

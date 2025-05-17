@@ -9,9 +9,12 @@ import { ThreeDots } from "react-loader-spinner";
 import { enqueueSnackbar } from "notistack";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "../../../store/hooks";
+import { saveUser } from "../../../store/slices/saveUser";
 
 const Page = () => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   const inputType = showPassword ? "text" : "password";
@@ -38,6 +41,7 @@ const Page = () => {
         console.log(response);
         enqueueSnackbar("Success", { variant: "success" });
         router.push("/dashboard");
+        dispatch(saveUser(response.data.user));
       }
     } catch (error) {
       console.log(error);

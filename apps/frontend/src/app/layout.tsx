@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SnackProv } from "@/components/SnackProv";
 import { ReduxProvider } from "@/components/ReduxProvider";
-import UserFetcher from "@/components/UserFetcher";
 
 export const metadata: Metadata = {
   title: "C.R System",
@@ -19,10 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ReduxProvider>
-          <SnackProv>
-            <UserFetcher />
-            {children}
-          </SnackProv>
+          <SnackProv>{children}</SnackProv>
         </ReduxProvider>
       </body>
     </html>

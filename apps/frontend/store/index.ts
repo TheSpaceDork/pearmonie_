@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import getUser from "./slices/saveUser";
+import getRecommendations from "./slices/saveRecommendations";
 
 export const store = configureStore({
   reducer: {
     getUser,
+    getRecommendations,
   },
 });
 

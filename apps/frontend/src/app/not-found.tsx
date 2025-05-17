@@ -1,6 +1,4 @@
-// app/404.tsx (for App Router)
-// or pages/404.tsx (for Pages Router)
-
+"use client";
 import LottieTumbleWeed from "@/components/LottieTumbleweed";
 import Link from "next/link";
 import React from "react";

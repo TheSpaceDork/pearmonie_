@@ -3,8 +3,11 @@ import cors from "cors";
 import dotenv from "dotenv";
 import routes from "./routes";
 import cookieParser from "cookie-parser";
+import path from "path";
+import { configureCloudinary } from "./config/cloudinary";
 
-dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
+configureCloudinary();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

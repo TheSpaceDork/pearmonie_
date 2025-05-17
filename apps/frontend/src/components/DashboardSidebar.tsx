@@ -68,10 +68,7 @@ const DashboardSidebar = () => {
                 if (user.role === "admin") {
                   return true;
                 } else {
-                  return (
-                    item.allowedRoles === "All" ||
-                    item.allowedRoles.includes(user.role)
-                  );
+                  return item.allowedRoles === "All";
                 }
               })
 

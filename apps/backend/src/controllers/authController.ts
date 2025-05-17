@@ -100,7 +100,7 @@ export const getUser = (req: Request, res: Response) => {
       id: string;
     };
     User.findById(decoded.id)
-      .select("name email createdAt") // Only return these fields
+      .select("name email role createdAt") // Only return these fields
       .then((user) => {
         if (!user) return res.status(404).json({ message: "User not found" });
 
