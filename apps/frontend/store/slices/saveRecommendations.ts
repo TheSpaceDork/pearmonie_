@@ -5,17 +5,19 @@ export interface Recommendation {
   title: string;
   description: string;
   postType: string;
-  image: string;
-  text: string;
-  link: string;
+  image?: string;
+  text?: string;
+  link?: string;
   creator: {
     name: string;
   };
   likes: string[];
   comments: {
+    id: string;
     name: string;
     text: string;
   }[];
+  createdAt: Date;
 }
 
 // The entire slice state
