@@ -2,9 +2,12 @@ FROM node:18
 
 WORKDIR /app
 
+# Avoid node_modules mess
+COPY .dockerignore .dockerignore
 COPY . .
 
-RUN npm install
+# Add this if peer deps might be broken
+RUN npm install --legacy-peer-deps
 
 WORKDIR /app/apps/frontend
 
