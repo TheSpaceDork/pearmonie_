@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nodemon src/server.ts",
     "build": "tsc",
+    "prestart": "pwd && ls -la && ls -R ./dist",
     "start": "ls -R ./dist && node dist/server.js",
     "seed": "ts-node src/scripts/seeder.ts",
     "test": "jest"
