@@ -24,7 +24,13 @@ body{
   background-clip: padding-box;
 }
 
-/* Style your items */
-.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+
+.my-masonry-grid_column > div {
   margin-bottom: 30px;
+}
+
+.container {
+  max-width: 1650px;
+  margin: 0 auto;
+  padding: 0;
 }

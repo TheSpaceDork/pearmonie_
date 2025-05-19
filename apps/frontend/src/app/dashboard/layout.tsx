@@ -1,7 +1,7 @@
-// import DashboardNav from "@/components/DashboardNav";
 import DashboardSidebar from "@/components/DashboardSidebar";
 import "../globals.css";
 import UserFetcher from "@/components/UserFetcher";
+import DashboardNav from "@/components/DashboardNav";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -12,10 +12,12 @@ export default function RootLayout({
       {" "}
       <div>
         <section className="default-bg !pt-0 ">
-          {/* <DashboardNav />{" "} */}
-          <div className="flex relative h-screen ">
+          <div className="flex flex-col md:flex-row relative h-screen ">
             <UserFetcher />
             <DashboardSidebar />
+            <div className="block md:hidden">
+              <DashboardNav />
+            </div>
             <div className="flex-1 overflow-y-scroll">{children}</div>
           </div>
         </section>

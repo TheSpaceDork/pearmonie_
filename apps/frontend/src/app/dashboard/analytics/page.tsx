@@ -217,24 +217,30 @@ const AnalyticsPage = () => {
   };
 
   return (
-    <div className="p-8 space-y-12">
-      <h2 className="text-2xl font-bold mb-4">Analytics Dashboard</h2>
+    <div className="px-4 py-6 md:p-8 space-y-10 md:space-y-12">
+      <h2 className="text-xl md:text-2xl font-bold mb-4">
+        Analytics Dashboard
+      </h2>
 
-      <div className="bg-white p-6 rounded-xl shadow-md">
-        <h3 className="text-lg font-semibold mb-4">Engagement by Post Type</h3>
-        <Bar data={barData} options={barOptions} />
+      <div className="bg-white p-4 md:p-6 rounded-xl shadow-md w-full md:max-w-2xl lg:max-w-3xl mx-auto">
+        <h3 className="text-base md:text-lg font-semibold mb-4">
+          Engagement by Post Type
+        </h3>
+        <Bar data={barData} options={barOptions} height={300} />
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow-md">
-        <h3 className="text-lg font-semibold mb-4">Engagement Distribution</h3>
-        <Pie data={pieData} options={pieOptions} />
+      <div className="bg-white p-4 md:p-6 rounded-xl shadow-md w-full md:max-w-2xl lg:max-w-3xl mx-auto">
+        <h3 className="text-base md:text-lg font-semibold mb-4">
+          Engagement Distribution
+        </h3>
+        <Pie data={pieData} options={pieOptions} height={300} />
       </div>
 
-      <div className="bg-white p-6 rounded-xl shadow-md">
-        <h3 className="text-lg font-semibold mb-4">
+      <div className="bg-white p-4 md:p-6 rounded-xl shadow-md w-full md:max-w-2xl lg:max-w-3xl mx-auto">
+        <h3 className="text-base md:text-lg font-semibold mb-4">
           Engagement Trends Over Time
         </h3>
-        <Line data={lineData} options={lineOptions} />
+        <Line data={lineData} options={lineOptions} height={350} />
       </div>
     </div>
   );

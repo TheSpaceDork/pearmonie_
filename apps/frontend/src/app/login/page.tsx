@@ -55,7 +55,7 @@ const Page = () => {
   };
   return (
     <div className="flex justify-between w-screen h-screen">
-      <div className="w-1/2 p-8">
+      <div className="w-full md:w-1/2 p-8">
         <div className="flex items-center space-x-4 ">
           {" "}
           <div className="text-4xl">
@@ -120,7 +120,7 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/2 relative">
+      <div className="hidden md:block  w-1/2 relative">
         <Image
           src={"/assets/login-img2.png"}
           alt="Login image"

@@ -43,14 +43,16 @@ const DashboardSidebar = () => {
     },
   ];
   return (
-    <div className="w-[17rem] py-[3rem] pb-[4.5rem] px-[2.3rem] border-r border-r-gray-300 flex flex-col justify-between text-black/45">
+    <div className="lg:w-[15rem] xl:w-[17rem] py-[3rem] pb-[4.5rem] px-[2.3rem] border-r border-r-gray-300  flex-col justify-between text-black/45 hidden md:flex">
       <div className="flex flex-col space-y-[6rem]">
         <div className="flex items-center space-x-4  text-black ">
           {" "}
           <div className="text-4xl">
             <SiContentstack />
           </div>{" "}
-          <span className="font-bold text-xl ">C.R System</span>
+          <span className="font-bold text-xl whitespace-nowrap ">
+            C.R System
+          </span>
         </div>
         {user.name === "" ? (
           <div className="flex flex-col space-y-6">

@@ -12,9 +12,9 @@ import {
 const Page = () => {
   const breakpointColumnsObj = {
     default: 3,
-    1100: 3,
-    700: 2,
-    500: 1,
+    1600: 3,
+    1000: 2,
+    600: 1,
   };
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -72,50 +72,52 @@ const Page = () => {
   }, []);
 
   return (
-    <div className="w-full px-[1.5rem] py-[3rem] overflow-y-scroll">
-      <div className="relative w-[200px] mb-6">
-        <button
-          onClick={toggleDropdown}
-          className="w-full bg-white border border-gray-300 rounded-md px-4 py-2 text-sm text-left shadow-sm flex justify-between items-center"
+    <div className="container">
+      <div className="w-full px-[1.5rem] py-[3rem] md:py-[3rem] overflow-y-scroll">
+        <div className="relative w-[200px] mb-6">
+          <button
+            onClick={toggleDropdown}
+            className="w-full bg-white border border-gray-300 rounded-md px-4 py-2 text-sm text-left shadow-sm flex justify-between items-center"
+          >
+            {selectedType}
+            <span className="ml-2">&#x25BC;</span> {/* Down caret */}
+          </button>
+
+          {isDropdownOpen && (
+            <ul className="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-md shadow-md max-h-60 overflow-y-auto">
+              {postTypes.map((type) => (
+                <li
+                  key={type}
+                  onClick={() => handleSelect(type)}
+                  className={`px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 ${
+                    selectedType === type ? "bg-gray-200 font-medium" : ""
+                  }`}
+                >
+                  {type}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
         >
-          {selectedType}
-          <span className="ml-2">&#x25BC;</span> {/* Down caret */}
-        </button>
-
-        {isDropdownOpen && (
-          <ul className="absolute z-10 mt-1 w-full bg-white border border-gray-200 rounded-md shadow-md max-h-60 overflow-y-auto">
-            {postTypes.map((type) => (
-              <li
-                key={type}
-                onClick={() => handleSelect(type)}
-                className={`px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 ${
-                  selectedType === type ? "bg-gray-200 font-medium" : ""
-                }`}
-              >
-                {type}
-              </li>
-            ))}
-          </ul>
-        )}
+          {loading
+            ? dummySkelly.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-300 animate-pulse rounded-md w-full"
+                  style={{ height: `${item}rem` }}
+                />
+              ))
+            : filteredRecommendations.map((item) => (
+                <RecommendationCards key={item._id} item={item} />
+              ))}
+        </Masonry>
       </div>
-
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {loading
-          ? dummySkelly.map((item, index) => (
-              <div
-                key={index}
-                className="bg-gray-300 animate-pulse rounded-md w-full"
-                style={{ height: `${item}rem` }}
-              />
-            ))
-          : filteredRecommendations.map((item) => (
-              <RecommendationCards key={item._id} item={item} />
-            ))}
-      </Masonry>
     </div>
   );
 };

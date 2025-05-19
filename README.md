@@ -1,6 +1,6 @@
 # SaaS-Based Intelligent Content Recommendation Platform
 
-## 📌 Overview
+##  Overview
 
 This is a SaaS-based intelligent content recommendation system designed for businesses to deliver personalized content experiences to their users. The platform ingests a variety of content types, tracks user behavior, and uses AI to recommend content tailored to each user’s interests.
 
@@ -8,9 +8,9 @@ This is a SaaS-based intelligent content recommendation system designed for busi
 
 ---
 
-## 🧱 Features
+##  Features
 
-### 🔄 Core Platform Features
+###  Core Platform Features
 - Ingest and manage diverse content (text, images, links)
 - Track user interactions (views, clicks, likes)
 - Generate personalized content recommendations using AI
@@ -25,8 +25,8 @@ This is a SaaS-based intelligent content recommendation system designed for busi
 |--------------|-------------------------------------------|
 | **Frontend**  | Next.js, TypeScript, TailwindCSS         |
 | **Backend**   | Node.js, Express, TypeScript             |
-| **AI Engine** | TensorFlow.js or Python (e.g. scikit-learn) |
-| **Database**  | PostgreSQL or MongoDB                    |
+| **AI Engine** | TensorFlow.js |
+| **Database**  |  MongoDB                    |
 | **DevOps**    | Docker, GitHub Actions, Vercel/Render/AWS |
 | **Monorepo**  | Turborepo + Yarn/NPM workspaces          |
 
@@ -39,9 +39,12 @@ pearmonie_assessment/
 ├── apps/
 │   ├── frontend/       # Next.js frontend app
 │   ├── backend/        # Node.js/Express API server
-│   └── ai/             # AI model (TensorFlow.js)
+│  
 ├── packages/
-│   └── shared/         # Shared utils, types, validation
+│   ├──shared/         # Shared utils, types, validation
+    ├── ai-utils/         # AI model (TensorFlow.js)
+    └── src/getSimilarContent # AI exported file
+    └── index.ts exports the ai file
 ├── turbo.json
 ├── package.json
 └── README.md
@@ -72,13 +75,11 @@ turbo run dev --filter=frontend
 # Backend
 turbo run dev --filter=backend
 
-# AI (Node or Python based)
-turbo run dev --filter=ai
-```
+
 
 ---
 
-## 🔐 Authentication
+## Authentication
 
 - JWT-based auth flow
 - API protection using middleware
@@ -86,56 +87,56 @@ turbo run dev --filter=ai
 
 ---
 
-## 📊 API Reference
+##  API Reference
+## Auth
+- `POST /api/auth/register` — Add new User
+- `POST /api/auth/login` — Login as User or Admin
+# Admin authentication details are admin@admin.com and password is password the route for creating admins isn't accessible through the frontend
+- `POST /api/auth/create-admin` — Creates new Admin
+- `GET /api/auth/logout` — Calls the logout route
+- `GET /api/auth/get-user` — Fetch user data
+- `PUT /api/users/:id` — Edit user data
 
 ### Content
-- `GET /content` — List content
-- `POST /content` — Add new content
-- `PUT /content/:id` — Update content
-- `DELETE /content/:id` — Delete content
+- `POST /api/admin/recommendations` — Admin to create content... this route is protected
+- `GET /api/recommendations` — Fetches  content on user side
 
 ### User Interactions
-- `POST /track` — Track views, clicks, likes
-
-### Recommendations
-- `GET /recommendations?userId=xyz`
-
-### Auth
-- `POST /auth/register`
-- `POST /auth/login`
-
----
-
-## 🤖 AI Model Overview
-
-###  Strategy: **Hybrid Filtering**
+- `POST /recommendations/:id/like` —  toggle likes
+- `POST /recommendations/:id/comment` —  add comments
+- `POST /recommendations/:id/view` —  track view 
 
 
 
-### 📂 AI Folder Structure
-```
-apps/ai/
-├──  model.ts  # Training logic
-├── recommender.py       # Inference / API integration
-└── sample-data/         # Simulated user/content logs
-```
 
----
+##  AI Model Overview
 
-## 📈 Analytics Dashboard
+This project includes a hybrid recommendation engine that combines AI-powered suggestions with traditional content-based filtering. The system uses a custom hook to generate tailored recommendations, excluding duplicates and ensuring content diversity. Users can filter content by post type, and a real-time analytics dashboard provides engagement insights to guide future improvements.
+
+### Highlights
+-  AI + fallback blending strategy for resilience and relevance
+-  Dynamic filtering by post type
+-  Intelligent async state handling
+-  Built-in analytics for continuous feedback loop
+
+
+
+
+
+##  Analytics Dashboard
 
 - Content performance metrics: views, likes, CTR
 - User engagement trends
-- Built using [Recharts](https://recharts.org/) and integrated via REST API
+- Built using Charts js 
 
 ---
 
-## ⚙️ DevOps & Deployment
+##  DevOps & Deployment
 
-- Dockerized backend and AI services
+- Dockerized backend and Frontend services
 - GitHub Actions for CI/CD
 - Frontend deployed to Vercel
-- Backend & AI deployed to Render or AWS
+- Backend  deployed to Render 
 - Cloud database: MongoDB Atlas
 
 ---
@@ -143,7 +144,7 @@ apps/ai/
 
 
 
-## 🧠 Notes
+##  Notes
 
 - All dependencies and tools are documented in respective app folders.
 - Focused on a scalable, maintainable architecture using industry best practices.
@@ -151,6 +152,6 @@ apps/ai/
 
 ---
 
-## 📬 Contact
+##  Contact
 
-If you have any questions or feedback about this project, feel free to reach out at [treasurechux@gmail.com] or open an issue in the GitHub repository.
+If you have any questions or feedback about this project, feel free to reach out at treasurechux@gmail.com or open an issue in the GitHub repository.
