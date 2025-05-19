@@ -6,22 +6,17 @@ WORKDIR /app
 # Copy everything into the image
 COPY . .
 
-# Move to backend directory
-WORKDIR /app/apps/backend
-
-# Install dependencies
+# Install dependencies using npm
 RUN npm install
 
-# Build your app (must generate dist/server.js)
-RUN npm run build
+# Use turbo to build only the backend and its dependencies
+RUN npx turbo run build --filter=backend...
 
-# 🔍 Debug: List files to see what's built
-RUN echo "==== FILE STRUCTURE AFTER BUILD ====" && ls -R /app/apps/backend/dist
+# 🔍 Debug: Check what was built
+RUN echo "==== FILE STRUCTURE AFTER BUILD ====" && ls -R /app/apps/backend/
 
-
-
-# Expose the port your app uses
+# Expose the port your backend uses
 EXPOSE 5000
 
-# Start your server (adjust this if needed)
-CMD ["node", "dist/server.js"]
+# Start your server
+CMD ["node", "apps/backend/dist/server.js"]
