@@ -3,25 +3,23 @@ FROM node:18
 # Set working directory
 WORKDIR /app
 
-# Copy everything into the image
+# Copy package files first for better caching
+COPY package*.json ./
+COPY apps/backend/package*.json ./apps/backend/
+
+# Install root and backend dependencies
+RUN npm install
+RUN cd apps/backend && npm install
+
+# Copy all other files
 COPY . .
 
-# Move to backend directory
+# Build backend
 WORKDIR /app/apps/backend
-
-# Install dependencies
-RUN npm install
-
-# Build your app (must generate dist/server.js)
 RUN npm run build
 
-# 🔍 Debug: List files to see what's built
-RUN echo "==== FILE STRUCTURE AFTER BUILD ====" && ls -R /app/apps/backend/
+# Verify build output
+RUN ls -la dist/
 
-
-
-# Expose the port your app uses
 EXPOSE 5000
-
-# Start your server (adjust this if needed)
-CMD ["node", "dist/server.js"]
+CMD ["node", "dist/server.js"]  # Adjust if your entry point is different
