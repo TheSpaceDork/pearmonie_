@@ -20,7 +20,6 @@ RUN echo "==== FILE STRUCTURE AFTER BUILD ====" && ls -R /app
 
 
 
-
 # Expose the port your app uses
 EXPOSE 5000
 
