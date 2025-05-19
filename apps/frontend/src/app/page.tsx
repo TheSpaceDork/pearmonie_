@@ -167,7 +167,7 @@ export default function Home() {
       </div>
       <div className="hidden md:block  w-1/2 relative">
         <Image
-          src={"/assets/login-img2.png"}
+          src={"/assets/login-img2.webp"}
           alt="Login image"
           width={1000}
           height={1000}
