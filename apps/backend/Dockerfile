@@ -16,7 +16,8 @@ RUN npm install
 RUN npm run build
 
 # 🔍 Debug: List files to see what's built
-RUN echo "==== FILE STRUCTURE AFTER BUILD ====" && ls -R /app > /app/structure.txt
+RUN echo "==== FILE STRUCTURE AFTER BUILD ====" && ls -R /app
+
 
 # Optional: Keep it readable in logs
 RUN cat /app/structure.txt
