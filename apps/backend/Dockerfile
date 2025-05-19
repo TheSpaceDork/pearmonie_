@@ -19,8 +19,7 @@ RUN npm run build
 RUN echo "==== FILE STRUCTURE AFTER BUILD ====" && ls -R /app
 
 
-# Optional: Keep it readable in logs
-RUN cat /app/structure.txt
+
 
 # Expose the port your app uses
 EXPOSE 5000
