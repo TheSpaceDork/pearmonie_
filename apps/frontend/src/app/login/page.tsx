@@ -38,13 +38,13 @@ const Page = () => {
         password,
       });
       if (response.status === 200) {
-        console.log(response);
+        // console.log(response);
         enqueueSnackbar("Success", { variant: "success" });
         router.push("/dashboard");
         dispatch(saveUser(response.data.user));
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setIsLoading(false);
       if (axios.isAxiosError(error)) {
         enqueueSnackbar(error.response?.data?.message || "An error occurred", {

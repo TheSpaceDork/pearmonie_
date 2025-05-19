@@ -59,12 +59,12 @@ export default function Home() {
         password: formData.password,
       });
       if (response.status === 201) {
-        console.log(response);
+        // console.log(response);
         enqueueSnackbar("Success", { variant: "success" });
         router.push("/dashboard");
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setIsLoading(false);
       if (axios.isAxiosError(error)) {
         enqueueSnackbar(error.response?.data?.message || "An error occurred", {

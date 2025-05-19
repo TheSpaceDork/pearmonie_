@@ -31,7 +31,7 @@ export const addComment = async (
       { text }
     );
     if (onSuccess) onSuccess(res.data.comments);
-    console.log(res.data);
+    // console.log(res.data);
   } catch (err) {
     console.error(err);
   }

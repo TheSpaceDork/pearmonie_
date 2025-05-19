@@ -84,7 +84,7 @@ const Page = () => {
         password: form.password,
       });
       if (response.status === 200) {
-        console.log(response.data);
+        // console.log(response.data);
         enqueueSnackbar("Success", { variant: "success" });
         dispatch(fetchUser());
 
@@ -92,7 +92,7 @@ const Page = () => {
         setForm((prev) => ({ ...prev, password: "" }));
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (axios.isAxiosError(error)) {
         enqueueSnackbar(error.response?.data?.message || "An error occurred", {
           variant: "error",

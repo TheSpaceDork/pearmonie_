@@ -88,7 +88,7 @@ export default function AddContentPage() {
         formData
       );
       if (response.status === 201) {
-        console.log(response.data);
+        // console.log(response.data);
         enqueueSnackbar("Success!", { variant: "success" });
         setForm({
           title: "",
@@ -100,7 +100,7 @@ export default function AddContentPage() {
         setImageFile(null);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       if (axios.isAxiosError(error)) {
         enqueueSnackbar(error.response?.data?.message || "An error occurred", {
           variant: "error",
