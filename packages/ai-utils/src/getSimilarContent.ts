@@ -28,8 +28,10 @@ export const getSimilarContent = async (
     )
     .array();
 
+  const scoresArray = scores as number[][];
+
   return allItems
-    .map((item, i) => ({ item, score: scores[i][0] }))
+    .map((item, i) => ({ item, score: scoresArray[i][0] }))
     .filter((x) => x.item._id !== targetItem._id)
     .sort((a, b) => b.score - a.score)
     .slice(0, topN)
