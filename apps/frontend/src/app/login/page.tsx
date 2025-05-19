@@ -40,7 +40,7 @@ const Page = () => {
       if (response.status === 200) {
         // console.log(response);
         enqueueSnackbar("Success", { variant: "success" });
-        router.push("/dashboard");
+        router.replace("/dashboard");
         dispatch(saveUser(response.data.user));
       }
     } catch (error) {
