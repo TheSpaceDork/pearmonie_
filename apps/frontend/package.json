@@ -11,7 +11,7 @@
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.13",
     "@reduxjs/toolkit": "^2.8.1",
-    "ai-utils": "^1.0.0",
+    "ai-utils": "file:../../packages/ai-utils",
     "axios": "^1.9.0",
     "chart.js": "^4.4.9",
     "chartjs-adapter-date-fns": "^3.0.0",
