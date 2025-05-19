@@ -16,7 +16,7 @@ RUN npm install
 RUN npm run build
 
 # 🔍 Debug: List files to see what's built
-RUN echo "==== FILE STRUCTURE AFTER BUILD ====" && ls -R /app/apps
+RUN echo "==== FILE STRUCTURE AFTER BUILD ====" && ls -R /app/apps/backend/dist
 
 
 
