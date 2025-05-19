@@ -1,25 +1,23 @@
 FROM node:18
 
-# Set working directory
+# Set working directory to /app (Railway prefers /app)
 WORKDIR /app
 
-# Copy package files first for better caching
+# Copy ONLY package files first (better caching)
 COPY package*.json ./
-COPY apps/backend/package*.json ./apps/backend/
-
-# Install root and backend dependencies
 RUN npm install
-RUN cd apps/backend && npm install
 
-# Copy all other files
+# Copy the rest of the files
 COPY . .
 
-# Build backend
-WORKDIR /app/apps/backend
+# Build the app (adjust if your build script differs)
 RUN npm run build
 
-# Verify build output
+# Verify the build output (debug step)
 RUN ls -la dist/
 
+# Expose port (Railway overrides this anyway)
 EXPOSE 5000
-CMD ["node", "dist/server.js"]  # Adjust if your entry point is different
+
+# Run the app (adjust if entry point is different, e.g., `dist/main.js`)
+CMD ["node", "dist/server.js"]
