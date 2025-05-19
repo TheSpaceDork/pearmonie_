@@ -4,12 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-WORKDIR /app/apps/frontend
-
 RUN npm install
+
+WORKDIR /app/apps/frontend
 RUN npm run build
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
-# 
