@@ -27,7 +27,7 @@ This is a SaaS-based intelligent content recommendation system designed for busi
 | **Backend**   | Node.js, Express, TypeScript             |
 | **AI Engine** | TensorFlow.js |
 | **Database**  |  MongoDB                    |
-| **DevOps**    | Docker, GitHub Actions, Vercel/Render/AWS |
+| **DevOps**    | Docker, GitHub Actions|
 | **Monorepo**  | Turborepo + Yarn/NPM workspaces          |
 
 ---
@@ -136,7 +136,7 @@ This project includes a hybrid recommendation engine that combines AI-powered su
 - Dockerized backend and Frontend services
 - GitHub Actions for CI/CD
 - Frontend deployed to Vercel
-- Backend  deployed to Render 
+- Backend  deployed to Railway 
 - Cloud database: MongoDB Atlas
 
 ---
