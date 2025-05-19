@@ -14,14 +14,25 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: function (origin, callback) {
-      // allow requests with no origin like curl or Postman
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
+      const allowedOrigins = [
+        "http://localhost:3000",
+        "https://pearmonie-assessment-frontend.vercel.app/",
+      ];
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
       }
-      return callback(new Error("Not allowed by CORS"));
     },
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "X-Requested-With",
+      "Accept",
+    ],
     credentials: true,
+    maxAge: 86400, // 24 hours
   })
 );
 app.use(cookieParser());
