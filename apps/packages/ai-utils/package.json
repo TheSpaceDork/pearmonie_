@@ -2,6 +2,9 @@
   "name": "ai-utils",
   "version": "1.0.0",
   "main": "index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "type": "module",
   "dependencies": {
     "@tensorflow/tfjs": "^4.16.0",

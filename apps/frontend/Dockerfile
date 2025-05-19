@@ -1,18 +1,15 @@
-# Frontend Dockerfile (apps/frontend/Dockerfile)
 FROM node:18
 
 WORKDIR /app
 
-# Copy pre-built ai-utils (must exist in your build context)
-COPY packages/ai-utils/dist ./packages/ai-utils/dist
-COPY packages/ai-utils/package.json ./packages/ai-utils/package.json
+# Copy everything
+COPY . .
 
-# Install frontend dependencies
-COPY apps/frontend/package*.json ./
-RUN npm install --legacy-peer-deps
+# Install dependencies at the root level so workspaces are linked
+RUN npm install
 
-# Copy frontend code
-COPY apps/frontend .
+# Set the working directory to your frontend app
+WORKDIR /app/apps/frontend
 
-# Build frontend
+# Build your frontend
 RUN npm run build

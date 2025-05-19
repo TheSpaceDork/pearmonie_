@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { getSimilarContent } from "ai-utils";
+import { getSimilarContent } from "../packages/ai-utils";
 
 export interface RecommendationItem {
   _id: string;
@@ -7,8 +7,8 @@ export interface RecommendationItem {
   description: string;
   postType: string;
   text?: string;
-  likes: string[]; // Assuming user IDs are stored here
-  comments: { id: string; name: string; text: string }[]; // Assuming this structure
+  likes: string[];
+  comments: { id: string; name: string; text: string }[];
   image?: string;
   link?: string;
   creator: {
