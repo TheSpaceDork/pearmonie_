@@ -1,12 +1,20 @@
 "use client";
-import LottieTumbleWeed from "@/components/LottieTumbleweed";
 import Link from "next/link";
 import React from "react";
 
+import dynamic from "next/dynamic";
 export default function NotFound() {
+  const LottieTumbleWeed = dynamic(
+    () => import("@/components/LottieTumbleweed"),
+    {
+      ssr: false,
+      loading: () => <div className="w-full md:w-64 h-64" />,
+    }
+  );
+
   return (
     <div className="h-screen flex flex-col justify-center items-center text-center px-6 space-y-8">
-      <div className="w-64 h-64 rounded-lg flex justify-center items-center">
+      <div className=" w-full md:w-64 h-64 rounded-lg flex justify-center items-center">
         <LottieTumbleWeed />
       </div>
 
