@@ -11,5 +11,4 @@ RUN npm run build
 
 EXPOSE 5000
 
-CMD ["node", "dist/server.js"]
-# 
+CMD ["node", "/app/apps/backend/dist/server.js"]
