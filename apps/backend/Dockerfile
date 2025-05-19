@@ -1,10 +1,9 @@
 FROM node:18
 
-WORKDIR /app
 
 COPY . .
 
-WORKDIR /app/apps/backend
+WORKDIR /apps/backend
 
 RUN npm install
 RUN npm run build
