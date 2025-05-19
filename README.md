@@ -91,7 +91,7 @@ turbo run dev --filter=backend
 ## Auth
 - `POST /api/auth/register` — Add new User
 - `POST /api/auth/login` — Login as User or Admin
-# Admin authentication details are admin@admin.com and password is password the route for creating admins isn't accessible through the frontend
+# Admin authentication details are admin@admin.com and password is password.... the route for creating admins isn't accessible through the frontend
 - `POST /api/auth/create-admin` — Creates new Admin
 - `GET /api/auth/logout` — Calls the logout route
 - `GET /api/auth/get-user` — Fetch user data
