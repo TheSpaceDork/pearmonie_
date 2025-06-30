@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import { SnackProv } from "@/components/SnackProv";
-import { ReduxProvider } from "@/components/ReduxProvider";
+import { SnackProv } from "../components/SnackProv";
+import { ReduxProvider } from "../components/ReduxProvider";
 
 export const metadata: Metadata = {
   title: "C.R System",

@@ -5,7 +5,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 export default function NotFound() {
   const LottieTumbleWeed = dynamic(
-    () => import("@/components/LottieTumbleweed"),
+    () => import("../components/LottieTumbleweed"),
     {
       ssr: false,
       loading: () => <div className="w-full md:w-64 h-64" />,
