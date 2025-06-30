@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import Masonry from "react-masonry-css";
-import RecommendationCards from "@/components/RecommendationCards";
+import RecommendationCards from "../../components/RecommendationCards";
 import { useAppSelector } from "../../../store/hooks";
 import {
   RecommendationItem,
