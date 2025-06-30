@@ -38,9 +38,10 @@ const Page = () => {
         password,
       });
       if (response.status === 200) {
-        // console.log(response);
+        console.log(response);
         enqueueSnackbar("Success", { variant: "success" });
-        router.push("/dashboard");
+        console.log("Redirecting...");
+        router.replace("/dashboard");
         dispatch(saveUser(response.data.user));
       }
     } catch (error) {
