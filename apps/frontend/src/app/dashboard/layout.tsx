@@ -1,7 +1,8 @@
-import DashboardSidebar from "@/components/DashboardSidebar";
-import "../globals.css";
 import UserFetcher from "@/components/UserFetcher";
+import "../globals.css";
+import DashboardSidebar from "@/components/DashboardSidebar";
 import DashboardNav from "@/components/DashboardNav";
+
 export default function RootLayout({
   children,
 }: Readonly<{
