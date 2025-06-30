@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { axiosInstance } from "../lib/axios";
+import { axiosNextApi } from "../lib/axios";
 import axios from "axios";
 import { enqueueSnackbar } from "notistack";
 
@@ -9,7 +9,7 @@ export const useLogout = () => {
 
   const logout = async () => {
     try {
-      const response = await axiosInstance.get("/auth/logout");
+      const response = await axiosNextApi.post("/auth/logout");
       if (response.status === 200) {
         router.replace("/login");
       }
