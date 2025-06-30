@@ -5,9 +5,15 @@ export async function POST() {
   try {
     const cookieStore = cookies();
 
-    // Clear the "token" cookie
-    // @ts-expect-error: next/headers types are missing `.delete` for cookies in App Router
-    cookieStore.delete("token");
+    // Overwrite the token cookie with an expired one
+    //   @ts-expect-error bad type i guess
+    cookieStore.set("token", "", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      expires: new Date(0), // 👈 forces immediate expiration
+      path: "/", // 👈 ensure it's cleared globally
+    });
 
     return NextResponse.json(
       { message: "Logged out successfully" },
