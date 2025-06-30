@@ -6,7 +6,16 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "dist/**"]
+      "outputs": [".next/**", "dist/**"],
+      "env": {
+        "frontend": [
+          "NEXT_PUBLIC_API_BASE_URL",
+          "JWT_SECRET",
+          "NODE_ENV",
+          "MONGODB_URI"
+        ],
+        "backend": ["MONGODB_URI", "JWT_SECRET", "NODE_ENV"]
+      }
     }
   }
 }
