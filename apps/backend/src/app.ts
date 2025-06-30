@@ -19,11 +19,12 @@ app.use(
         "https://pearmonie-assessment-frontend.vercel.app",
       ];
       if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
+        callback(null, origin); // return the actual origin string
       } else {
         callback(new Error("Not allowed by CORS"));
       }
     },
+
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
     allowedHeaders: [
       "Content-Type",
