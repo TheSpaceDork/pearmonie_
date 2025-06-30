@@ -18,3 +18,10 @@ export const axiosInstanceForms = axios.create({
     "Content-Type": "multipart/form-data",
   },
 });
+export const axiosNextApi = axios.create({
+  baseURL: "/api", // this hits Next.js API routes directly
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});

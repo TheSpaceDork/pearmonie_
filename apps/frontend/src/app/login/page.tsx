@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { SiContentstack } from "react-icons/si";
-import { axiosInstance } from "../../../lib/axios";
+import { axiosNextApi } from "../../../lib/axios";
 import { ThreeDots } from "react-loader-spinner";
 import { enqueueSnackbar } from "notistack";
 import axios from "axios";
@@ -33,7 +33,7 @@ const Page = () => {
       return;
     }
     try {
-      const response = await axiosInstance.post("/auth/login", {
+      const response = await axiosNextApi.post("/auth/login", {
         email,
         password,
       });
